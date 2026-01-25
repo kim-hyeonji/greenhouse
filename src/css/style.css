@@ -1,6 +1,6 @@
 :root {
   --content-width: 720px;
-  --page-padding: 20px;
+  --page-padding: 16px;
   --border: rgba(0, 0, 0, 0.1);
   --muted: rgba(0, 0, 0, 0.6);
   --header-h: 64px; /* adjust if needed */
@@ -143,7 +143,7 @@ main {
 /* Typography */
 h1 {
   font-size: 24px;
-  line-height: 1;
+  line-height: 1.2;
   margin: 0 0 6px;
   font-weight: 400;
 }
@@ -250,6 +250,10 @@ article > p:first-of-type {
 
 /* Mobile */
 @media (max-width: 520px) {
+  :root {
+    --header-h: 96px;
+    --footer-h: 64px;
+  }
   body {
     font-size: 14px;
   }
