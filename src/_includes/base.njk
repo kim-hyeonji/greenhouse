@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- DM Mono from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  
+  <!-- Inter -->
+  <link
+  href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500&display=swap"
+  rel="stylesheet"
+/>
+
+
+
+  <title>{{ title }} · Greenhouse</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+
+  <body>
+   <header class="site-header">
+      <div class="header-inner">
+        <a class="site-title" href="/">Greenhouse</a>
+
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/about/">About</a>
+        </nav>
+      </div>
+  </header>
+
+
+    <main>
+      <div class="content">
+        {{ content | safe }}
+      </div>
+    </main>
+
+       <footer class="site-footer">
+          <div class="footer-inner">
+            <small>
+            © 2026 Greenhouse · Built with
+            <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer">
+              Eleventy
+            </a>
+              ·
+            <a href="/feed.xml">RSS</a>
+            </small>
+          </div>
+</footer>
+
+
+  </body>
+</html>
+
+

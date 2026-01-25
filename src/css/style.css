@@ -1,0 +1,302 @@
+:root {
+  --content-width: 720px;
+  --page-padding: 20px;
+  --border: rgba(0, 0, 0, 0.1);
+  --muted: rgba(0, 0, 0, 0.6);
+  --header-h: 64px; /* adjust if needed */
+  --footer-h: 44px; /* adjust if needed */
+  --font-ui: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-ui);
+
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.55;
+  background: #fff;
+  color: #111;
+  letter-spacing: -0.04em;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-wrap {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+.header-inner {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Header */
+.site-header {
+  border-bottom: none !important;
+  padding: 16px 0 40px !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.site-title {
+  font-weight: 600;
+}
+
+.site-nav {
+  display: flex;
+  gap: 14px;
+}
+
+.site-nav a {
+  color: inherit;
+  opacity: 0.75;
+}
+
+/* Main */
+main {
+  padding: 20px 0 40px;
+  flex: 1;
+  padding-top: var(--header-h);
+  padding-bottom: var(--footer-h);
+}
+
+.blog-list {
+  max-width: 720px;
+  margin-left: 0;
+}
+
+.content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 var(--page-padding);
+}
+
+.content-left {
+  max-width: none;
+  margin: 0;
+}
+
+.content-left h1 {
+  margin-bottom: 24px;
+}
+
+.content-left p {
+  margin-bottom: 1.2em;
+}
+
+.content-left p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Footer */
+.site-footer {
+  padding: 12px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white; /* or your site bg color */
+}
+
+.footer-inner {
+  max-width: 42rem; /* or whatever content width you like */
+  margin: 0 auto;
+  text-align: center; /* optional, but usually desired */
+}
+
+.site-footer small {
+  font-size: 12px;
+  color: var(--muted);
+  opacity: 0.65;
+}
+
+/* Typography */
+h1 {
+  font-size: 24px;
+  line-height: 1;
+  margin: 0 0 6px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 32px 0 12px;
+  font-weight: 500;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+small {
+  color: var(--muted);
+}
+
+.site-header,
+.site-footer,
+.site-nav,
+.post-meta,
+.tag-row,
+small {
+  font-family: var(--font-ui);
+  letter-spacing: -0.03em;
+}
+
+/* Post content spacing */
+article p {
+  margin-bottom: 1.8em;
+}
+
+article,
+.content-left {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+article h1,
+.post-title {
+  font-family: var(--font-ui);
+  letter-spacing: -0.05em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+}
+
+a:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+
+.site-header a {
+  border-bottom: none;
+}
+
+/* Blog list */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 14px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  margin-bottom: 22px;
+}
+
+.post-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+.post-excerpt {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+h1 + .post-list,
+h1 + ul {
+  margin-top: 24px;
+}
+
+/* First paragraph of post */
+article > p:first-of-type {
+  color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* tags */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.tag {
+  font-size: 12px;
+  opacity: 0.75;
+  border-bottom: 1px dotted var(--border);
+  padding-bottom: 1px;
+}
+
+.tag:hover {
+  opacity: 1;
+  border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+
+.tag::before {
+  content: "#";
+  opacity: 0.6;
+}
+
+@media (max-width: 520px) {
+  .tag-row {
+    gap: 2px 8px;
+  }
+
+  .tag {
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}

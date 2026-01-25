@@ -1,0 +1,20 @@
+---
+title: Tags
+layout: base.njk
+---
+
+<h1>Tags</h1>
+
+<ul class="tag-list">
+  {# collections is an object with keys for each tag #}
+  {% for tag, posts in collections %}
+    {# hide internal tags and non-tag collections #}
+    {% if tag != "all" and tag != "posts" and tag != "posts" and tag != "nav" %}
+      {% if posts and posts.length %}
+        <li>
+          <a class="tag" href="/tags/{{ tag | url }}/">{{ tag }} ({{ posts.length }})</a>
+        </li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ul>

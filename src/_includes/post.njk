@@ -1,0 +1,26 @@
+---
+layout: base.njk
+---
+
+<article>
+  <h1>{{ title }}</h1>
+
+  <p>
+    <small>
+        {% set d = page.date %}
+        {{ d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) }}
+    </small>
+    </p>
+
+  {% if tags %}
+    <p class="tag-row">
+      {% for t in tags %}
+        {% if t != "posts" %}
+          <a class="tag" href="/tags/{{ t | url }}/">{{ t }}</a>
+        {% endif %}
+      {% endfor %}
+    </p>
+  {% endif %}
+
+  {{ content | safe }}
+</article>

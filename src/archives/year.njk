@@ -1,0 +1,48 @@
+---
+layout: base.njk
+pagination:
+  data: collections.postYears
+  size: 1
+  alias: year
+permalink: /archives/{{ year }}/
+eleventyComputed:
+  title: "{{ year }}"
+
+---
+
+<div class="blog-list content-left">
+  <h1 style="margin-bottom: 24px">{{ year }}</h1>
+
+  <ul>
+    {% for post in collections.posts | reverse %}
+      {% if post.date.getFullYear() == year %}
+        <li style="margin-bottom: 32px">
+          <div>
+            <a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+          </div>
+
+          <div>
+            <small>
+              {% set d = post.date %}
+              {{ d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) }}
+            </small>
+          </div>
+
+          {% if post.data.tags %}
+          <div class="tag-row">
+            {% for t in post.data.tags %}
+              {% if t != "posts" %}
+                <a class="tag" href="/tags/{{ t | url }}/">{{ t }}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {% if post.data.excerpt %}
+          <p class="post-excerpt">{{ post.data.excerpt }}</p>
+          {% endif %}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

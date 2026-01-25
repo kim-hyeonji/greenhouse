@@ -1,0 +1,41 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tagName
+permalink: "/tags/{{ tagName | url }}/"
+layout: base.njk
+eleventyComputed:
+  title: "Tag: {{ tagName }}"
+---
+
+
+
+{% set posts = collections[tagName] %}
+
+{# Skip non-tag collections #}
+{% if tagName != "all" and tagName != "posts" and posts and posts.length %}
+  <h1>Tag: {{ tagName }}</h1>
+
+  <ul class="post-list">
+    {% for post in posts | reverse %}
+      <li class="post-item">
+        <a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+        <div class="post-meta">
+         <small>
+         {% set d = post.page.date %}
+         {% if d %}
+          {{ d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) }}
+         {% endif %}
+        </small>
+
+
+        </div>
+
+        {% if post.data.excerpt %}
+          <p class="post-excerpt">{{ post.data.excerpt }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
