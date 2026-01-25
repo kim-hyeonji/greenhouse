@@ -10,7 +10,7 @@ permalink: /
     {% for post in collections.posts | reverse %}
     <li style="margin-bottom: 32px">
       <div>
-        <a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+        <a class="post-title" href="{{ post.url | url }}">{{ post.data.title }}</a>
       </div>
       <div>
         <small>

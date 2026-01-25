@@ -20,7 +20,7 @@ eleventyComputed:
   <ul class="post-list">
     {% for post in posts | reverse %}
       <li class="post-item">
-        <a class="post-title" href="{{ post.url }}">{{ post.data.title }}</a>
+        <a class="post-title" href="{{ post.url | url }}">{{ post.data.title }}</a>
         <div class="post-meta">
          <small>
          {% set d = post.page.date %}
