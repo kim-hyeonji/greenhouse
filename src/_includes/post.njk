@@ -16,7 +16,7 @@ layout: base.njk
     <p class="tag-row">
       {% for t in tags %}
         {% if t != "posts" %}
-          <a class="tag" href="/tags/{{ t | url }}/">{{ t }}</a>
+          <a class="tag" href="{{ ('/tags/' ~ t ~ '/') | url }}">{{ t }}</a>
         {% endif %}
       {% endfor %}
     </p>

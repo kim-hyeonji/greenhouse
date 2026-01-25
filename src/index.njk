@@ -23,7 +23,7 @@ permalink: /
       <div class="tag-row">
         {% for t in post.data.tags %}
           {% if t != "posts" %}
-          <a class="tag" href="/tags/{{ t | url }}/">{{ t }}</a>
+          <a class="tag" href="{{ ('/tags/' ~ t ~ '/') | url }}">{{ t }}</a>
           {% endif %}
         {% endfor %}
       </div>
