@@ -21,18 +21,19 @@
 
 
   <title>{{ title }} · Greenhouse</title>
-  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}" />
+
 </head>
 
 
   <body>
    <header class="site-header">
       <div class="header-inner">
-        <a class="site-title" href="/">Greenhouse</a>
+        <a class="site-title" href="{{ '/' | url }}">Greenhouse</a>
 
 
         <nav class="site-nav" aria-label="Primary">
-          <a href="/about/">About</a>
+          <a href="{{ '/about/' | url }}">About</a>
         </nav>
       </div>
   </header>
@@ -52,7 +53,8 @@
               Eleventy
             </a>
               ·
-            <a href="/feed.xml">RSS</a>
+            <a href="{{ '/feed.xml' | url }}">RSS</a>
+
             </small>
           </div>
 </footer>
