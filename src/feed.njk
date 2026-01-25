@@ -2,7 +2,6 @@
 permalink: /feed.xml
 eleventyExcludeFromCollections: true
 ---
-
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
   <channel>
@@ -17,13 +16,7 @@ eleventyExcludeFromCollections: true
       <link>{{ site.url }}{{ post.url }}</link>
       <guid>{{ site.url }}{{ post.url }}</guid>
       <pubDate>{{ post.page.date.toUTCString() }}</pubDate>
-      <description>
-        <![CDATA[
-          {% if post.data.excerpt %}
-            {{ post.data.excerpt }}
-          {% endif %}
-        ]]>
-      </description>
+      <description><![CDATA[{% if post.data.excerpt %}{{ post.data.excerpt }}{% endif %}]]></description>
     </item>
     {% endfor %}
   </channel>
