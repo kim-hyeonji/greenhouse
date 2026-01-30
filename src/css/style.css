@@ -3,7 +3,7 @@
   --page-padding: 16px;
   --border: rgba(0, 0, 0, 0.1);
   --muted: rgba(0, 0, 0, 0.6);
-  --header-h: 60px; /* adjust if needed */
+  --header-h: 72px; /* adjust if needed */
   --footer-h: 40px; /* adjust if needed */
   --font-ui: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
