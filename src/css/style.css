@@ -32,6 +32,10 @@ body {
   flex-direction: column;
 }
 
+article strong {
+  font-weight: 600;
+}
+
 .site-wrap {
   max-width: var(--content-width);
   margin: 0 auto;
@@ -214,10 +218,37 @@ article p {
   margin-bottom: 1.8em;
 }
 
+/* Markdown wraps images in a <p>. Remove the big paragraph gap for image-only paragraphs */
+article p:has(> img:only-child) {
+  margin-bottom: 8px;
+}
+
+/* Captions should not inherit the big post paragraph spacing */
+article p.caption {
+  margin-top: 0 !important;
+  margin-bottom: 18px !important;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+article img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px 0 6px;
+}
+
 article,
 .content-left {
   font-family: var(--font-body);
   letter-spacing: 0;
+}
+
+article a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 0.85em;
+  opacity: 0.6;
 }
 
 article h1,
@@ -267,13 +298,36 @@ a:hover {
 }
 
 /* Blog list */
-ul {
+
+/* List styling for blog index / tag pages (no bullets) */
+.blog-list ul,
+.post-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-li {
+/* Lists inside post content (Markdown) */
+article ul,
+article ol {
+  padding-left: 1.2em;
+  margin: 0 0 1.2em;
+}
+
+article ul {
+  list-style: disc;
+}
+
+article ol {
+  list-style: decimal;
+}
+
+article li {
+  margin: 0.4em 0;
+}
+
+.blog-list li,
+.post-item {
   margin-bottom: 14px;
 }
 
@@ -370,18 +424,4 @@ article > p:first-of-type {
     font-size: 11px;
     white-space: nowrap;
   }
-}
-
-article img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 24px 0;
-}
-
-article em {
-  display: block;
-  margin-top: -12px;
-  font-size: 12px;
-  color: var(--muted);
 }

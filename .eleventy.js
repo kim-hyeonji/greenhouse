@@ -34,5 +34,7 @@ module.exports = function (eleventyConfig) {
       output: "_site",
     },
     pathPrefix: "/greenhouse/",
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
   };
 };
