@@ -3,8 +3,8 @@
   --page-padding: 16px;
   --border: rgba(0, 0, 0, 0.1);
   --muted: rgba(0, 0, 0, 0.6);
-  --header-h: 64px; /* adjust if needed */
-  --footer-h: 44px; /* adjust if needed */
+  --header-h: 60px; /* adjust if needed */
+  --footer-h: 40px; /* adjust if needed */
   --font-ui: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
 
@@ -52,18 +52,36 @@ body {
 /* Header */
 .site-header {
   border-bottom: none !important;
-  padding: 16px 0 40px !important;
+  padding: 16px 0 16px !important;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+  background: #fff;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -24px;
+  height: 32px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 .header-inner {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 16px;
 }
 
@@ -79,6 +97,7 @@ body {
 .site-nav a {
   color: inherit;
   opacity: 0.75;
+  white-space: nowrap;
 }
 
 /* Main */
@@ -90,6 +109,7 @@ main {
 }
 
 .blog-list {
+  padding-top: 6px;
   max-width: 720px;
   margin-left: 0;
 }
@@ -128,6 +148,22 @@ main {
   background: white; /* or your site bg color */
 }
 
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -24px;
+  height: 32px;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
 .footer-inner {
   max-width: 42rem; /* or whatever content width you like */
   margin: 0 auto;
@@ -145,6 +181,7 @@ h1 {
   font-size: 24px;
   line-height: 1.2;
   margin: 0 0 6px;
+  margin-top: 12px;
   font-weight: 400;
 }
 
@@ -276,21 +313,26 @@ article > p:first-of-type {
 /* Mobile */
 @media (max-width: 520px) {
   :root {
-    --header-h: 96px;
+    --header-h: 72px; /* header is now one line, so smaller */
     --footer-h: 64px;
-  }
-  body {
-    font-size: 14px;
-  }
-
-  h1 {
-    font-size: 24px;
   }
 
   .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: row; /* keep inline */
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .site-title,
+  .site-nav a {
+    white-space: nowrap;
+  }
+
+  /* optional: slightly smaller to guarantee no wrap */
+  .site-title,
+  .site-nav a {
+    font-size: 13px;
   }
 }
 
