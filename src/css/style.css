@@ -189,6 +189,31 @@ article h1,
   letter-spacing: -0.05em;
 }
 
+.post-nav {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  font-family: var(--font-ui);
+  opacity: 0.75;
+}
+
+.post-nav-link {
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  padding: 2px 0; /* easier to tap on mobile */
+}
+
+.post-nav-link:hover {
+  opacity: 1;
+}
+
+.post-nav-spacer {
+  width: 3.5em; /* keeps "List" centered when prev/next missing */
+}
+
 /* Links */
 a {
   color: inherit;

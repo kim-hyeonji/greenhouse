@@ -2,6 +2,8 @@
 layout: base.njk
 ---
 
+
+
 <article>
   <h1>{{ title }}</h1>
 
@@ -23,4 +25,25 @@ layout: base.njk
   {% endif %}
 
   {{ content | safe }}
+
+ <nav class="post-nav" aria-label="Post navigation">
+  {% if prevPost %}
+    <a class="post-nav-link" href="{{ prevPost.url | url }}">← Prev</a>
+  {% else %}
+    <span class="post-nav-spacer"></span>
+  {% endif %}
+
+  <a class="post-nav-link" href="{{ '/' | url }}">List</a>
+
+  {% if nextPost %}
+    <a class="post-nav-link" href="{{ nextPost.url | url }}">Next →</a>
+  {% else %}
+    <span class="post-nav-spacer"></span>
+  {% endif %}
+</nav>
+
+
+
+
+
 </article>

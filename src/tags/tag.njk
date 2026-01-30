@@ -14,7 +14,8 @@ eleventyComputed:
 {% set posts = collections[tagName] %}
 
 {# Skip non-tag collections #}
-{% if tagName != "all" and tagName != "posts" and posts and posts.length %}
+{% if tagName != "all" and tagName != "posts" and tagName != "postYears" and posts and posts.length %}
+
   <h1>Tag: {{ tagName }}</h1>
 
   <ul class="post-list">
