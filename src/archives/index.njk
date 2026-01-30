@@ -10,7 +10,7 @@ permalink: /archives/
   <ul>
     {% for year in collections.postYears %}
       <li style="margin-bottom: 12px">
-        <a class="post-title" href="/archives/{{ year }}/">{{ year }}</a>
+        <a class="post-title" href="{{ ('/archives/' ~ year ~ '/') | url }}">{{ year }}</a>
       </li>
     {% endfor %}
   </ul>

@@ -2,6 +2,8 @@ module.exports = function (eleventyConfig) {
   // Tell Eleventy to copy CSS files as-is
   eleventyConfig.addPassthroughCopy("src/css");
 
+  eleventyConfig.addPassthroughCopy("src/images");
+
   // Years collection for archives
   eleventyConfig.addCollection("postYears", function (collectionApi) {
     const posts = collectionApi.getFilteredByTag("posts");

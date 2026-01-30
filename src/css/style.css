@@ -371,3 +371,17 @@ article > p:first-of-type {
     white-space: nowrap;
   }
 }
+
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px 0;
+}
+
+article em {
+  display: block;
+  margin-top: -12px;
+  font-size: 12px;
+  color: var(--muted);
+}
