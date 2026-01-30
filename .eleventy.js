@@ -28,6 +28,53 @@ module.exports = function (eleventyConfig) {
     return posts;
   });
 
+  const markdownIt = require("markdown-it");
+  const mila = require("markdown-it-link-attributes");
+
+  eleventyConfig.setLibrary(
+    "md",
+    markdownIt({ html: true, linkify: true }).use(mila, {
+      matcher(href) {
+        return href.startsWith("http");
+      },
+      attrs: {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    })
+  );
+
+  // Image + caption helper
+  eleventyConfig.addNunjucksShortcode(
+    "figure",
+    function (src, alt, caption = "") {
+      // ensure leading slash
+      const cleanSrc = src.startsWith("/") ? src : `/${src}`;
+
+      // hardcode pathPrefix (matches your config)
+      const url = `/greenhouse${cleanSrc}`;
+
+      const safeAlt = (alt || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/"/g, "&quot;");
+
+      const figcaption = caption
+        ? `<figcaption class="caption">${caption.replace(
+            /<a /g,
+            '<a target="_blank" rel="noopener noreferrer" '
+          )}</figcaption>`
+        : "";
+
+      return `
+  <figure class="figure">
+    <img src="${url}" alt="${safeAlt}" loading="lazy">
+    ${figcaption}
+  </figure>
+  `.trim();
+    }
+  );
+
   return {
     dir: {
       input: "src",

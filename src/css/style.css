@@ -22,7 +22,7 @@ body {
 
   font-size: 14px;
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.6;
   background: #fff;
   color: #111;
   letter-spacing: -0.04em;
@@ -196,7 +196,7 @@ h2 {
 }
 
 p {
-  margin: 0 0 16px;
+  margin: 0;
 }
 
 small {
@@ -213,30 +213,47 @@ small {
   letter-spacing: -0.03em;
 }
 
-/* Post content spacing */
+/* Post body paragraphs */
 article p {
   margin-bottom: 1.8em;
 }
 
-/* Markdown wraps images in a <p>. Remove the big paragraph gap for image-only paragraphs */
-article p:has(> img:only-child) {
-  margin-bottom: 8px;
+/* Reduce gap between bold paragraph title and following list */
+article p:has(> strong):has(+ ul) {
+  margin-bottom: 0.6em;
 }
 
-/* Captions should not inherit the big post paragraph spacing */
-article p.caption {
-  margin-top: 0 !important;
-  margin-bottom: 18px !important;
-  font-size: 12px;
-  line-height: 1.5;
+/* Lead paragraph */
+article > p:first-of-type {
+  margin-bottom: 1em;
   color: var(--muted);
 }
 
-article img {
+hr {
+  border: none;
+  height: 1px;
+  margin: 32px 0;
+  background-color: var(--border);
+}
+
+/* Images + captions (shortcode: figure) */
+article figure.figure {
+  margin: 24px 0;
+}
+
+article figure.figure img {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 24px 0 6px;
+  margin: 0;
+}
+
+article figure.figure figcaption.caption {
+  margin-top: 6px;
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
 }
 
 article,
@@ -259,7 +276,7 @@ article h1,
 
 .post-nav {
   margin-top: 40px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
